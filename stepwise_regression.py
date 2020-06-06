@@ -52,6 +52,7 @@ class StepwiseRegression:
 
     def vars_drop(self, y, X, entered_vars, p_criteria):
         ols = self.linear_regression(y, X[entered_vars])
+        # ** pandas series
         p_values = ols.pvalues
         dropped_vars = []
         for index in p_values.index:
