@@ -31,7 +31,7 @@ class StepwiseRegression:
     def enter_new_var(self, y, X, entered_vars, dropped_vars):
         var_candidates = {}
         for var in X.columns:
-            if var not in entered_vars or var not in dropped_vars:
+            if var not in entered_vars and var not in dropped_vars:
                     ols = self.linear_regression(y, X[entered_vars + [var]])
                     p_values = ols.pvalues
                     var_candidates[var] = p_values[var]
